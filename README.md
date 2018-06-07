@@ -1,5 +1,6 @@
 # jenkins.nindeco
-Start container with command:
+Start jenkins container with command:
 <pre>
-sudo docker-compose up -d
+sudo run.sh
 </pre>
+##### !!!Container use host-docker!!!
