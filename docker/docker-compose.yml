@@ -1,0 +1,22 @@
+version: '3'
+services:
+  jenkins:
+    container_name: "jenkins"
+    user: root
+    build: .
+    volumes:
+      - ../jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    restart: always
+    environment: 
+      - DOCKER_SOCKET:"/var/run/docker.sock"
+      - DOCKER_GROUP:"dockerhost"
+      - JENKINS_USER:"jenkins"
+      - DOCKER_HOST:"unix:///var/run/docker.sock"
+      - TZ=Europe/Moscow
+      - JENKINS_HOST_HOME:"/jenkins_home/jenkins"
+      - JAVA_OPTS:"-Djava.util.logging.config.file=/var/jenkins_home/log.properties"
+    ports: 
+      - "50000:50000"
+      - "8080:8080"
