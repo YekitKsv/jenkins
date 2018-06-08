@@ -1,6 +1,6 @@
 FROM jenkins/jenkins:latest
 
-# User root install libs for runnit docker-compose and docker 
+# User root install libs for running docker-compose and docker 
 USER root 
 
 # Copy entrypoint.sh to container 
